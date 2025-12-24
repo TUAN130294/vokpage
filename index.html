@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOK - Vibecode Omni Kit | AI Development Platform</title>
+    <meta name="description"
+        content="VOK - The ultimate AI-powered development platform. Smart routing saves 40-70% costs. 19 AI agents, 36+ skills, beautiful desktop app.">
+    <meta name="keywords" content="AI coding, Claude, GPT, development, programming, automation, vok, vibecode">
+    <meta property="og:title" content="VOK - Vibecode Omni Kit">
+    <meta property="og:description" content="Save 40-70% on AI costs with smart model routing. 19 agents, 36+ skills.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+
+<body>
+    <!-- Aurora Background -->
+    <div class="aurora-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">VOK</span>
+                <span class="logo-badge">v2.2</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#vibecoder" class="nav-new">🎨 Vibecoder</a>
+                <a href="#agents">Agents</a>
+                <a href="#pricing">Pricing</a>
+                <a href="docs.html">Docs</a>
+            </div>
+            <a href="https://github.com/TUAN130294/vok" target="_blank" class="nav-cta">
+                <span>Get Started</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🚀</span>
+                <span>Open Source AI Development Platform</span>
+            </div>
+
+            <h1 class="hero-title">
+                <span class="title-line">Your <span class="gradient-text">AI Coding</span></span>
+                <span class="title-line">Command Center</span>
+            </h1>
+
+            <p class="hero-subtitle">
+                VOK automatically routes tasks to the best AI model — saving you
+                <strong>40-70% on API costs</strong> while delivering premium quality.
+                19 specialized agents, 36+ skills, one unified platform.
+            </p>
+
+            <div class="hero-actions">
+                <a href="https://github.com/TUAN130294/vok" target="_blank" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    <span>Clone from GitHub</span>
+                </a>
+                <a href="#demo" class="btn btn-secondary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3" />
+                    </svg>
+                    <span>Watch Demo</span>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-value">19</span>
+                    <span class="stat-label">AI Agents</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">36+</span>
+                    <span class="stat-label">Skills</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">70%</span>
+                    <span class="stat-label">Cost Savings</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">AI Providers</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn-close"></span>
+                        <span class="btn-minimize"></span>
+                        <span class="btn-maximize"></span>
+                    </div>
+                    <span class="terminal-title">VOK Commander</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="command typing">vok "implement JWT authentication"</span>
+                    </div>
+                    <div class="terminal-output">
+                        <span class="output-icon">🎯</span>
+                        <span class="output-text">Routing to <span class="highlight">GLM</span> (optimal for
+                            coding)</span>
+                    </div>
+                    <div class="terminal-output">
+                        <span class="output-icon">💰</span>
+                        <span class="output-text">Estimated savings: <span class="success">$0.042</span> vs
+                            Claude</span>
+                    </div>
+                    <div class="terminal-output">
+                        <span class="output-icon">⚡</span>
+                        <span class="output-text">Executing with <span class="info">Coder Agent</span>...</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="prompt">$</span>
+                        <span class="cursor"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">✨ Features</span>
+                <h2 class="section-title">Everything You Need. <span class="gradient-text">Nothing You Don't.</span>
+                </h2>
+                <p class="section-subtitle">Built for developers who want the power of multiple AI models without the
+                    complexity.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card feature-main">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Smart AI Routing</h3>
+                    <p>VOK analyzes your task and automatically selects the optimal AI model. Coding goes to GLM,
+                        reviews to Gemini, architecture to Claude.</p>
+                    <div class="feature-visual">
+                        <div class="routing-demo">
+                            <div class="task-input">
+                                <span class="task-icon">📝</span>
+                                <span>"implement user auth"</span>
+                            </div>
+                            <div class="routing-arrow">→</div>
+                            <div class="model-output">
+                                <span class="model-badge glm">GLM</span>
+                                <span class="reason">Fast & Cheap</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>40-70% Cost Savings</h3>
+                    <p>Use free OAuth providers for routine tasks, premium models only when needed.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>19 AI Agents</h3>
+                    <p>Specialized agents for every task: Coder, Architect, Reviewer, Designer, and more.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>36+ Skills</h3>
+                    <p>From backend APIs to UI design, databases to DevOps — all domains covered.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>Desktop App</h3>
+                    <p>Beautiful Tauri-based desktop app with dashboard, orchestrator, and phase management.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Slash Commands</h3>
+                    <p>/plan, /cook, /fix, /review — 18 powerful commands at your fingertips.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Multi-Provider</h3>
+                    <p>Claude, Gemini, GLM, Kimi, Antigravity — switch between providers instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Routing Demo Section -->
+    <section class="routing-section" id="routing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">🎯 Smart Routing</span>
+                <h2 class="section-title">The Right AI for <span class="gradient-text">Every Task</span></h2>
+            </div>
+
+            <div class="routing-table-wrapper">
+                <table class="routing-table">
+                    <thead>
+                        <tr>
+                            <th>Task Type</th>
+                            <th>Routes To</th>
+                            <th>Why</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="task-tag coding">Coding</span></td>
+                            <td><span class="model-badge glm">GLM</span></td>
+                            <td>Fast execution, lowest cost</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-tag review">Review</span></td>
+                            <td><span class="model-badge gemini">Gemini</span></td>
+                            <td>Free OAuth, great analysis</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-tag planning">Planning</span></td>
+                            <td><span class="model-badge agy">Antigravity</span></td>
+                            <td>Deep reasoning, free tier</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-tag design">UI/UX</span></td>
+                            <td><span class="model-badge agy">Antigravity</span></td>
+                            <td>Creative capabilities</td>
+                        </tr>
+                        <tr>
+                            <td><span class="task-tag critical">Complex</span></td>
+                            <td><span class="model-badge claude">Claude</span></td>
+                            <td>Maximum accuracy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section class="agents-section" id="agents">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">🤖 AI Agents</span>
+                <h2 class="section-title">Meet Your <span class="gradient-text">AI Team</span></h2>
+                <p class="section-subtitle">19 specialized agents ready to tackle any development challenge</p>
+            </div>
+
+            <div class="agents-grid">
+                <div class="agent-card">
+                    <div class="agent-avatar">💻</div>
+                    <h4>Coder</h4>
+                    <p>Production-ready code</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🏗️</div>
+                    <h4>Architect</h4>
+                    <p>System design</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🔍</div>
+                    <h4>Reviewer</h4>
+                    <p>Code quality</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🎨</div>
+                    <h4>Designer</h4>
+                    <p>UI/UX design</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🐛</div>
+                    <h4>Debugger</h4>
+                    <p>Bug hunting</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🧪</div>
+                    <h4>Tester</h4>
+                    <p>Testing & QA</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">📋</div>
+                    <h4>Planner</h4>
+                    <p>Project planning</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🗄️</div>
+                    <h4>DBA</h4>
+                    <p>Database ops</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">📦</div>
+                    <h4>Git Manager</h4>
+                    <p>Version control</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">📚</div>
+                    <h4>Docs</h4>
+                    <p>Documentation</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">🔬</div>
+                    <h4>Researcher</h4>
+                    <p>Tech research</p>
+                </div>
+                <div class="agent-card">
+                    <div class="agent-avatar">💡</div>
+                    <h4>Brainstormer</h4>
+                    <p>Creative ideas</p>
+                </div>
+            </div>
+
+            <div class="agents-cta">
+                <p>+ 7 more specialized agents</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🎨 Vibecoder Mode Section -->
+    <section class="vibecoder-section" id="vibecoder">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">🎨 NEW: Vibecoder Mode</span>
+                <h2 class="section-title">Build Websites <span class="animated-gradient">Without Code</span></h2>
+                <p class="section-subtitle">Perfect for beginners! Just describe what you want, AI does the rest.</p>
+            </div>
+
+            <!-- Vibecoder Features -->
+            <div class="vibecoder-grid">
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">🖼️</div>
+                    <h3>6 Templates Ready</h3>
+                    <p>Landing Page, Portfolio, E-Shop, Blog, Chat Bot, Dashboard - pick and customize</p>
+                </div>
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">💬</div>
+                    <h3>AI Chat Assistant</h3>
+                    <p>"Thêm nút liên hệ màu xanh" - speak naturally, AI understands</p>
+                </div>
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">👁️</div>
+                    <h3>Live Preview</h3>
+                    <p>See changes in real-time as AI builds your website</p>
+                </div>
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">🚀</div>
+                    <h3>One-Click Deploy</h3>
+                    <p>Vercel, Netlify, CloudFlare Pages - deploy in seconds</p>
+                </div>
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">📱</div>
+                    <h3>QR Code Preview</h3>
+                    <p>Scan with phone to preview on mobile instantly</p>
+                </div>
+                <div class="vibecoder-card glow-card">
+                    <div class="vc-icon">💡</div>
+                    <h3>Smart Suggestions</h3>
+                    <p>"Bạn có muốn thêm?" - AI suggests improvements</p>
+                </div>
+            </div>
+
+            <!-- App Mockup -->
+            <div class="app-showcase">
+                <div class="mockup-window glow-card">
+                    <div class="mockup-header">
+                        <div class="mockup-buttons">
+                            <span style="background:#ff5f56"></span>
+                            <span style="background:#ffbd2e"></span>
+                            <span style="background:#27ca40"></span>
+                        </div>
+                        <span class="mockup-title">VOK Desktop - Vibecoder Mode</span>
+                    </div>
+                    <div class="mockup-body">
+                        <div class="mockup-sidebar">
+                            <div class="mockup-step done">✓ Planning</div>
+                            <div class="mockup-step done">✓ Generating</div>
+                            <div class="mockup-step active">⟳ Building UI</div>
+                            <div class="mockup-step">○ Styling</div>
+                        </div>
+                        <div class="mockup-preview">
+                            <div class="mockup-tabs">
+                                <span class="tab active">Preview</span>
+                                <span class="tab">Deploy</span>
+                                <span class="tab">History</span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-hero shimmer">Landing Page Preview</div>
+                                <div class="preview-cards">
+                                    <div class="preview-card shimmer"></div>
+                                    <div class="preview-card shimmer"></div>
+                                    <div class="preview-card shimmer"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">💎 Pricing</span>
+                <h2 class="section-title">Pay Only for <span class="gradient-text">What You Need</span></h2>
+            </div>
+
+            <div class="pricing-comparison">
+                <div class="pricing-card traditional">
+                    <div class="pricing-header">
+                        <h3>Traditional Approach</h3>
+                        <span class="pricing-desc">Claude for everything</span>
+                    </div>
+                    <div class="pricing-cost">
+                        <span class="currency">$</span>
+                        <span class="amount">15</span>
+                        <span class="period">/month avg</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✗</span> Single provider lock-in</li>
+                        <li><span class="icon">✗</span> Overpay for simple tasks</li>
+                        <li><span class="icon">✗</span> No route optimization</li>
+                        <li><span class="icon">✗</span> Manual model selection</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card vok">
+                    <div class="pricing-popular">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>VOK Smart Router</h3>
+                        <span class="pricing-desc">Multi-provider optimization</span>
+                    </div>
+                    <div class="pricing-cost">
+                        <span class="currency">$</span>
+                        <span class="amount">0</span>
+                        <span class="period">to start*</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="icon">✓</span> Gemini OAuth (FREE)</li>
+                        <li><span class="icon">✓</span> Antigravity (FREE)</li>
+                        <li><span class="icon">✓</span> GLM ($0.001/1K tokens)</li>
+                        <li><span class="icon">✓</span> Smart task routing</li>
+                        <li><span class="icon">✓</span> 19 agents included</li>
+                        <li><span class="icon">✓</span> Desktop app included</li>
+                    </ul>
+                    <a href="https://github.com/TUAN130294/vok" class="pricing-cta">Get Started Free →</a>
+                    <p class="pricing-note">*Pay only when using paid APIs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Install Section -->
+    <section class="install-section" id="install">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">🚀 Quick Start</span>
+                <h2 class="section-title">Up and Running in <span class="gradient-text">60 Seconds</span></h2>
+            </div>
+
+            <div class="install-steps">
+                <div class="install-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Clone Repository</h4>
+                        <div class="code-block">
+                            <code>git clone https://github.com/TUAN130294/vok.git</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Run Setup</h4>
+                        <div class="code-block">
+                            <code>cd vok && ./setup.ps1  # Windows
+cd vok && ./setup.sh   # Mac/Linux</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Configure AI</h4>
+                        <div class="code-block">
+                            <code>ccs config  # Opens web dashboard</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="install-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Start Coding!</h4>
+                        <div class="code-block">
+                            <code>vok "build a todo app with React"</code>
+                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Development Workflow?</h2>
+                <p>Join thousands of developers saving time and money with VOK.</p>
+                <div class="cta-actions">
+                    <a href="https://github.com/TUAN130294/vok" target="_blank" class="btn btn-primary btn-large">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                        <span>Star on GitHub</span>
+                    </a>
+                    <a href="docs.html" target="_blank" class="btn btn-secondary btn-large">Read
+                        Documentation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <span class="logo-icon">⚡</span>
+                    <span class="logo-text">VOK</span>
+                </div>
+                <p class="footer-tagline">Vibecode Omni Kit - Your AI Development Partner</p>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#agents">Agents</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <a href="https://github.com/TUAN130294/vok/blob/main/README.md">Documentation</a>
+                    <a href="https://github.com/TUAN130294/vok/issues">Support</a>
+                    <a href="https://github.com/TUAN130294/vok/releases">Changelog</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Community</h4>
+                    <a href="https://github.com/TUAN130294/vok">GitHub</a>
+                    <a href="https://github.com/TUAN130294/vok/discussions">Discussions</a>
+                    <a href="https://github.com/TUAN130294/vok/blob/main/CONTRIBUTING.md">Contribute</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 VOK. Built with ❤️ by <a href="https://github.com/TUAN130294">TUAN130294</a></p>
+                <p>MIT License • Made in Vietnam 🇻🇳</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

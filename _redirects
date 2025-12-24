@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects
+/documentation  /docs.html  301
+/doc            /docs.html  301
