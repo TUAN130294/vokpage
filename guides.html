@@ -24,7 +24,7 @@
             <a href="index.html" class="nav-logo">
                 <span class="logo-icon">⚡</span>
                 <span class="logo-text">VOK</span>
-                <span class="logo-badge">v2.2</span>
+                <span class="logo-badge">v3.0</span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -41,10 +41,12 @@
         <!-- Sidebar -->
         <aside class="guides-sidebar">
             <h3>📚 Guides</h3>
-            <a href="#decision-tree" class="active">🌳 Decision Tree</a>
+            <a href="#flow-diagram" class="active">🔄 VOK Flow</a>
+            <a href="#decision-tree">🌳 Decision Tree</a>
             <a href="#new-project">🆕 Dự án mới</a>
-            <a href="#existing-project">📂 Dự án hiện có</a>
+            <a href="#existing-project">📂 Dự án có sẵn</a>
             <a href="#use-cases">💡 Use Cases</a>
+            <a href="#session-flow">💬 Session Flow</a>
             <a href="#workflows">🔄 Workflows</a>
             <a href="#tips">💪 Pro Tips</a>
         </aside>
@@ -52,133 +54,370 @@
         <!-- Main Content -->
         <main class="guides-content">
             <h1>🎯 VOK Command Workflow Guide</h1>
-            <p class="intro-text">Hướng dẫn chi tiết giúp bạn chọn đúng lệnh VOK cho từng tình huống. Không biết dùng
-                lệnh gì? Tra cứu tại đây!</p>
+            <p class="intro-text">Hướng dẫn trực quan giúp bạn hiểu cách VOK hoạt động và chọn đúng lệnh cho từng tình
+                huống.</p>
+
+            <!-- VOK Flow Diagram Section -->
+            <section id="flow-diagram">
+                <h2>🔄 VOK Flow Diagram</h2>
+                <p>Tổng quan cách VOK hoạt động từ khi gọi lệnh đến khi nhận kết quả.</p>
+
+                <div class="flow-diagram-container">
+                    <!-- Step 1: Entry Point -->
+                    <div class="flow-section">
+                        <div class="flow-header">
+                            <span class="flow-badge">ENTRY POINT</span>
+                            <h3>Bạn gõ <code>vok</code> từ bất kỳ đâu</h3>
+                        </div>
+                        <div class="flow-box entry">
+                            <div class="flow-icon">⚡</div>
+                            <div class="flow-text">
+                                <code class="big">vok</code>
+                                <span>Global command - hoạt động ở mọi thư mục</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="flow-arrow-down">
+                        <svg width="40" height="60" viewBox="0 0 40 60">
+                            <path d="M20 0 L20 45 L10 35 M20 45 L30 35" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 2: Config Check -->
+                    <div class="flow-section">
+                        <div class="flow-header">
+                            <span class="flow-badge">CONFIG CHECK</span>
+                            <h3>VOK kiểm tra cấu hình</h3>
+                        </div>
+                        <div class="flow-decision">
+                            <div class="decision-box">
+                                <span class="decision-icon">❓</span>
+                                <span>Đã có config?</span>
+                            </div>
+                            <div class="decision-branches">
+                                <div class="branch no">
+                                    <span class="branch-label">❌ Chưa</span>
+                                    <div class="branch-box setup">
+                                        <span class="icon">🛠️</span>
+                                        <span>SETUP MENU</span>
+                                        <p>Chọn default model</p>
+                                    </div>
+                                </div>
+                                <div class="branch yes">
+                                    <span class="branch-label">✅ Rồi</span>
+                                    <div class="branch-box continue">
+                                        <span class="icon">➡️</span>
+                                        <span>CONTINUE</span>
+                                        <p>Load config</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="flow-arrow-down">
+                        <svg width="40" height="60" viewBox="0 0 40 60">
+                            <path d="M20 0 L20 45 L10 35 M20 45 L30 35" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 3: Mode Selection -->
+                    <div class="flow-section">
+                        <div class="flow-header">
+                            <span class="flow-badge">MODE SELECTION</span>
+                            <h3>Chọn chế độ chạy</h3>
+                        </div>
+                        <div class="mode-grid">
+                            <div class="mode-card quick">
+                                <div class="mode-header">
+                                    <span class="mode-icon">⚡</span>
+                                    <h4>Quick Mode</h4>
+                                </div>
+                                <div class="mode-cmd"><code>vok "task"</code></div>
+                                <p>Chạy 1 task, auto-route đến AI phù hợp, trả kết quả</p>
+                                <div class="mode-flow">
+                                    <span>Task</span> → <span>Smart Route</span> → <span>AI</span> → <span>Result</span>
+                                </div>
+                            </div>
+                            <div class="mode-card session">
+                                <div class="mode-header">
+                                    <span class="mode-icon">💬</span>
+                                    <h4>Session Mode</h4>
+                                </div>
+                                <div class="mode-cmd"><code>vok --session</code></div>
+                                <p>Mở Claude Code terminal, dùng slash commands</p>
+                                <div class="mode-flow">
+                                    <span>/plan</span> → <span>/cook</span> → <span>/review</span> → <span>/git</span>
+                                </div>
+                            </div>
+                            <div class="mode-card interactive">
+                                <div class="mode-header">
+                                    <span class="mode-icon">🖥️</span>
+                                    <h4>Interactive Mode</h4>
+                                </div>
+                                <div class="mode-cmd"><code>vok</code></div>
+                                <p>REPL - gõ nhiều tasks liên tiếp</p>
+                                <div class="mode-flow">
+                                    <span>Prompt</span> ↔ <span>Response</span> ↔ <span>Prompt</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="flow-arrow-down">
+                        <svg width="40" height="60" viewBox="0 0 40 60">
+                            <path d="M20 0 L20 45 L10 35 M20 45 L30 35" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 4: Smart Routing -->
+                    <div class="flow-section">
+                        <div class="flow-header">
+                            <span class="flow-badge">SMART ROUTING</span>
+                            <h3>Tự động chọn AI Model</h3>
+                        </div>
+                        <div class="routing-visual">
+                            <div class="routing-input">
+                                <span class="label">Task của bạn</span>
+                                <div class="input-box">"implement user auth"</div>
+                            </div>
+                            <div class="routing-analyzer">
+                                <div class="analyzer-box">
+                                    <span class="icon">🧠</span>
+                                    <span>Keyword Analyzer</span>
+                                    <div class="keywords">
+                                        <span class="kw coding">implement</span>
+                                        <span class="kw">→</span>
+                                        <span class="kw result">CODING</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="routing-output">
+                                <div class="route-options">
+                                    <div class="route-opt" data-type="coding">
+                                        <span class="badge glm">GLM</span>
+                                        <span class="desc">Coding</span>
+                                        <span class="cost">$0.001</span>
+                                    </div>
+                                    <div class="route-opt" data-type="review">
+                                        <span class="badge gemini">Gemini</span>
+                                        <span class="desc">Review</span>
+                                        <span class="cost">FREE</span>
+                                    </div>
+                                    <div class="route-opt" data-type="planning">
+                                        <span class="badge agy">Agy</span>
+                                        <span class="desc">Planning</span>
+                                        <span class="cost">FREE</span>
+                                    </div>
+                                    <div class="route-opt" data-type="complex">
+                                        <span class="badge claude">Claude</span>
+                                        <span class="desc">Complex</span>
+                                        <span class="cost">$$$</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="flow-arrow-down">
+                        <svg width="40" height="60" viewBox="0 0 40 60">
+                            <path d="M20 0 L20 45 L10 35 M20 45 L30 35" stroke="currentColor" stroke-width="3"
+                                fill="none" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 5: Execution -->
+                    <div class="flow-section">
+                        <div class="flow-header">
+                            <span class="flow-badge">EXECUTION</span>
+                            <h3>Thực thi qua CCS</h3>
+                        </div>
+                        <div class="execution-visual">
+                            <div class="exec-step">
+                                <span class="num">1</span>
+                                <span class="icon">📄</span>
+                                <span class="text">Load Agent Prompt<br><small>.claude/agents/coder.md</small></span>
+                            </div>
+                            <div class="exec-arrow">→</div>
+                            <div class="exec-step">
+                                <span class="num">2</span>
+                                <span class="icon">📋</span>
+                                <span class="text">Inject Context<br><small>PROJECT_PLAN.md, DEV_LOG.md</small></span>
+                            </div>
+                            <div class="exec-arrow">→</div>
+                            <div class="exec-step">
+                                <span class="num">3</span>
+                                <span class="icon">🚀</span>
+                                <span class="text">Execute via CCS<br><small>ccs glm -p "task"</small></span>
+                            </div>
+                            <div class="exec-arrow">→</div>
+                            <div class="exec-step">
+                                <span class="num">4</span>
+                                <span class="icon">✅</span>
+                                <span class="text">Return Result<br><small>Code, explanations, files</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Session Flow Section -->
+            <section id="session-flow">
+                <h2>💬 Session Mode Flow</h2>
+                <p>Khi bạn dùng <code>vok --session</code>, Claude Code terminal mở ra với các slash commands.</p>
+
+                <div class="session-flow-container">
+                    <div class="session-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="btn-close"></span>
+                                <span class="btn-minimize"></span>
+                                <span class="btn-maximize"></span>
+                            </div>
+                            <span class="terminal-title">Claude Code via CCS</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="term-line prompt">
+                                <span class="ps1">&gt;</span>
+                                <span class="cmd">/plan "implement user authentication"</span>
+                            </div>
+                            <div class="term-line output">
+                                <span class="icon">📝</span>
+                                <span>Loading .claude/commands/plan.md...</span>
+                            </div>
+                            <div class="term-line output">
+                                <span class="icon">🧠</span>
+                                <span>Using Planner Agent...</span>
+                            </div>
+                            <div class="term-line output success">
+                                <span class="icon">✅</span>
+                                <span>Created: plans/2024-12-25-auth/plan.md</span>
+                            </div>
+                            <div class="term-line prompt">
+                                <span class="ps1">&gt;</span>
+                                <span class="cmd">/code @plan.md</span>
+                            </div>
+                            <div class="term-line output">
+                                <span class="icon">⚡</span>
+                                <span>Implementing step by step...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="session-sidebar">
+                        <h4>Slash Commands Available</h4>
+                        <div class="cmd-list">
+                            <div class="cmd-item primary">
+                                <code>/plan</code>
+                                <span>Tạo implementation plan</span>
+                            </div>
+                            <div class="cmd-item primary">
+                                <code>/cook</code>
+                                <span>All-in-one: plan → code → test</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/code</code>
+                                <span>Implement theo plan</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/fix</code>
+                                <span>Sửa lỗi</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/review</code>
+                                <span>Code review</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/test</code>
+                                <span>Chạy tests</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/git</code>
+                                <span>Git operations</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/docs</code>
+                                <span>Documentation</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/design</code>
+                                <span>UI/UX design</span>
+                            </div>
+                            <div class="cmd-item">
+                                <code>/scout</code>
+                                <span>Explore codebase</span>
+                            </div>
+                        </div>
+
+                        <h4>File References</h4>
+                        <div class="ref-list">
+                            <div class="ref-item">
+                                <code>@file.ts</code>
+                                <span>Reference file</span>
+                            </div>
+                            <div class="ref-item">
+                                <code>@plan.md</code>
+                                <span>Reference plan</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Decision Tree Section -->
             <section id="decision-tree">
-                <h2>🌳 Interactive Decision Tree</h2>
-                <p>Click vào mỗi box để xem chi tiết lệnh phù hợp.</p>
+                <h2>🌳 Decision Tree - Chọn lệnh nào?</h2>
+                <p>Không biết dùng lệnh gì? Xem decision tree dưới đây!</p>
 
-                <div class="decision-tree">
-                    <div class="tree-root">
-                        <div class="tree-node root">🎯 Bạn muốn làm gì?</div>
+                <div class="decision-tree-visual">
+                    <div class="dt-root">
+                        <div class="dt-node root">🎯 Bạn muốn làm gì?</div>
                     </div>
 
-                    <div class="tree-branches">
-                        <!-- Branch 1: New Project -->
-                        <div class="tree-branch">
-                            <div class="tree-node question" onclick="highlightPath('new-project')">
-                                🆕 Dự án mới?
-                            </div>
-                            <div class="tree-arrow">↓</div>
-                            <div class="tree-node command" data-cmd="bootstrap">
+                    <div class="dt-level">
+                        <div class="dt-branch">
+                            <div class="dt-node question">🆕 Dự án mới?</div>
+                            <div class="dt-result">
                                 <code>/bootstrap</code>
-                                <span>Full setup từ 0</span>
                             </div>
                         </div>
-
-                        <!-- Branch 2: Existing Project -->
-                        <div class="tree-branch">
-                            <div class="tree-node question" onclick="highlightPath('existing')">
-                                📂 Tham gia dự án?
-                            </div>
-                            <div class="tree-arrow">↓</div>
-                            <div class="tree-node command" data-cmd="scout">
-                                <code>/scout</code>
-                                <span>Khám phá codebase</span>
-                            </div>
-                            <div class="tree-arrow">↓</div>
-                            <div class="tree-node command" data-cmd="docs">
-                                <code>/docs</code>
-                                <span>Đọc/tạo docs</span>
+                        <div class="dt-branch">
+                            <div class="dt-node question">📂 Join dự án?</div>
+                            <div class="dt-result">
+                                <code>/scout</code> → <code>/docs</code>
                             </div>
                         </div>
-
-                        <!-- Branch 3: Build Feature -->
-                        <div class="tree-branch wide">
-                            <div class="tree-node question" onclick="highlightPath('build')">
-                                🔨 Xây feature?
-                            </div>
-                            <div class="tree-sub-branches">
-                                <div class="tree-sub">
-                                    <div class="tree-arrow">↙</div>
-                                    <div class="tree-node sub-q">Biết làm gì?</div>
-                                    <div class="tree-arrow">↓</div>
-                                    <div class="tree-fork">
-                                        <div class="fork-option">
-                                            <span class="fork-label">⚡ Nhanh</span>
-                                            <div class="tree-node command" data-cmd="cook">
-                                                <code>/cook</code>
-                                            </div>
-                                        </div>
-                                        <div class="fork-option">
-                                            <span class="fork-label">🛡️ An toàn</span>
-                                            <div class="tree-node command" data-cmd="plan">
-                                                <code>/plan</code>
-                                            </div>
-                                            <div class="tree-arrow">↓</div>
-                                            <div class="tree-node command" data-cmd="code">
-                                                <code>/code</code>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="dt-branch wide">
+                            <div class="dt-node question">🔨 Build feature?</div>
+                            <div class="dt-sub-level">
+                                <div class="dt-sub">
+                                    <span class="sub-label">⚡ Nhanh</span>
+                                    <div class="dt-result"><code>/cook</code></div>
                                 </div>
-                                <div class="tree-sub">
-                                    <div class="tree-arrow">↘</div>
-                                    <div class="tree-node sub-q">Không chắc?</div>
-                                    <div class="tree-arrow">↓</div>
-                                    <div class="tree-node command" data-cmd="brainstorm">
-                                        <code>/brainstorm</code>
-                                    </div>
+                                <div class="dt-sub">
+                                    <span class="sub-label">🛡️ Kỹ</span>
+                                    <div class="dt-result"><code>/plan</code> → <code>/code</code></div>
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Branch 4: Fix Issues -->
-                        <div class="tree-branch">
-                            <div class="tree-node question" onclick="highlightPath('fix')">
-                                🐛 Sửa lỗi?
-                            </div>
-                            <div class="tree-fork vertical">
-                                <div class="fork-option">
-                                    <span class="fork-label">Tìm lỗi</span>
-                                    <div class="tree-node command" data-cmd="debug">
-                                        <code>/debug</code>
-                                    </div>
-                                </div>
-                                <div class="fork-option">
-                                    <span class="fork-label">Biết lỗi</span>
-                                    <div class="tree-node command" data-cmd="fix">
-                                        <code>/fix</code>
-                                    </div>
-                                </div>
+                        <div class="dt-branch">
+                            <div class="dt-node question">🐛 Fix bug?</div>
+                            <div class="dt-result">
+                                <code>/debug</code> → <code>/fix</code>
                             </div>
                         </div>
-
-                        <!-- Branch 5: Git Operations -->
-                        <div class="tree-branch">
-                            <div class="tree-node question" onclick="highlightPath('git')">
-                                📦 Git ops?
-                            </div>
-                            <div class="tree-arrow">↓</div>
-                            <div class="tree-node command" data-cmd="git">
+                        <div class="dt-branch">
+                            <div class="dt-node question">📦 Git?</div>
+                            <div class="dt-result">
                                 <code>/git</code>
-                            </div>
-                        </div>
-
-                        <!-- Branch 6: Docs/Design -->
-                        <div class="tree-branch">
-                            <div class="tree-node question" onclick="highlightPath('design')">
-                                🎨 UI/Docs?
-                            </div>
-                            <div class="tree-fork vertical">
-                                <div class="tree-node command" data-cmd="design">
-                                    <code>/design</code>
-                                </div>
-                                <div class="tree-node command" data-cmd="docs">
-                                    <code>/docs</code>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -187,55 +426,28 @@
 
             <!-- New Project Section -->
             <section id="new-project">
-                <h2>🆕 Dự án mới (New Project)</h2>
-                <p>Khi bắt đầu một project hoàn toàn mới từ đầu.</p>
-
-                <div class="guide-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Lệnh</th>
-                                <th>Mô tả</th>
-                                <th>Khi nào dùng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="highlight">
-                                <td><code>/bootstrap</code></td>
-                                <td>Khởi tạo toàn bộ project: research → planning → design → implementation</td>
-                                <td>Bắt đầu từ con số 0</td>
-                            </tr>
-                            <tr>
-                                <td><code>vok "create new project"</code></td>
-                                <td>Quick mode với auto-routing</td>
-                                <td>Muốn nhanh, không cần interactive</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+                <h2>🆕 Bắt đầu dự án mới</h2>
                 <div class="workflow-example">
-                    <h4>📋 Workflow: Tạo dự án mới</h4>
                     <div class="workflow-steps">
                         <div class="step">
                             <span class="step-num">1</span>
                             <div class="step-content">
                                 <code>vok --session</code>
-                                <p>Mở interactive session</p>
+                                <p>Mở session mode</p>
                             </div>
                         </div>
                         <div class="step">
                             <span class="step-num">2</span>
                             <div class="step-content">
                                 <code>/bootstrap e-commerce với React + Node</code>
-                                <p>AI tự động research, plan, setup cấu trúc project</p>
+                                <p>AI research, plan, setup structure</p>
                             </div>
                         </div>
                         <div class="step">
                             <span class="step-num">3</span>
                             <div class="step-content">
-                                <code>/git commit "Initial project setup"</code>
-                                <p>Commit lần đầu</p>
+                                <code>/git commit "Initial setup"</code>
+                                <p>Commit và push</p>
                             </div>
                         </div>
                     </div>
@@ -244,60 +456,28 @@
 
             <!-- Existing Project Section -->
             <section id="existing-project">
-                <h2>📂 Dự án hiện có (Existing Project)</h2>
-                <p>Khi join vào một codebase đã có sẵn.</p>
-
-                <div class="guide-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Lệnh</th>
-                                <th>Mô tả</th>
-                                <th>Khi nào dùng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="highlight">
-                                <td><code>/scout</code></td>
-                                <td>Parallel search toàn bộ codebase, hiểu cấu trúc</td>
-                                <td>Mới join project</td>
-                            </tr>
-                            <tr>
-                                <td><code>/docs</code></td>
-                                <td>Tạo/đọc documentation cho project</td>
-                                <td>Tìm hiểu cách project hoạt động</td>
-                            </tr>
-                            <tr>
-                                <td><code>vok "explain this codebase"</code></td>
-                                <td>AI giải thích toàn bộ codebase</td>
-                                <td>Muốn hiểu nhanh tổng quan</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+                <h2>📂 Join dự án có sẵn</h2>
                 <div class="workflow-example">
-                    <h4>📋 Workflow: Join dự án hiện có</h4>
                     <div class="workflow-steps">
                         <div class="step">
                             <span class="step-num">1</span>
                             <div class="step-content">
-                                <code>cd /path/to/project && vok --session</code>
-                                <p>Navigate vào project và mở session</p>
+                                <code>cd /project && vok --session</code>
+                                <p>Navigate và mở session</p>
                             </div>
                         </div>
                         <div class="step">
                             <span class="step-num">2</span>
                             <div class="step-content">
-                                <code>/scout find all auth related files</code>
-                                <p>Tìm tất cả files liên quan đến auth</p>
+                                <code>/scout "find auth files"</code>
+                                <p>Explore codebase</p>
                             </div>
                         </div>
                         <div class="step">
                             <span class="step-num">3</span>
                             <div class="step-content">
-                                <code>/docs create README cho API endpoints</code>
-                                <p>Tạo documentation nếu chưa có</p>
+                                <code>/docs "summarize this codebase"</code>
+                                <p>Hiểu project</p>
                             </div>
                         </div>
                     </div>
@@ -306,154 +486,49 @@
 
             <!-- Use Cases Section -->
             <section id="use-cases">
-                <h2>💡 Use Cases - Ví dụ cụ thể</h2>
-                <p>Các tình huống thực tế và lệnh phù hợp.</p>
-
+                <h2>💡 Use Cases - Ví dụ thực tế</h2>
                 <div class="use-cases-grid">
-                    <!-- Case 1 -->
                     <div class="use-case-card">
                         <div class="case-header">
                             <span class="case-icon">🔐</span>
                             <h4>Thêm Authentication</h4>
                         </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Cần thêm login/register vào app
-                        </div>
                         <div class="case-commands">
-                            <p><strong>Option 1: Nhanh (biết rõ yêu cầu)</strong></p>
-                            <pre><code>/cook "implement JWT auth với login, register, logout"</code></pre>
+                            <pre><code># Nhanh
+/cook "implement JWT auth"
 
-                            <p><strong>Option 2: An toàn (cần review)</strong></p>
-                            <pre><code>/plan "implement JWT authentication"
-# Review plan...
-/code @plan.md</code></pre>
+# Kỹ
+/plan "auth system" → /code @plan.md</code></pre>
                         </div>
                     </div>
-
-                    <!-- Case 2 -->
                     <div class="use-case-card">
                         <div class="case-header">
                             <span class="case-icon">🐛</span>
                             <h4>Sửa Bug Production</h4>
                         </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Users báo lỗi 500 error khi checkout
-                        </div>
                         <div class="case-commands">
-                            <pre><code># Không biết lỗi ở đâu
-/debug "500 error when users checkout"
-
-# Hoặc biết rõ lỗi
-/fix "payment gateway timeout issue in checkout.ts"</code></pre>
+                            <pre><code>/debug "500 error on checkout"
+/fix "payment timeout issue"</code></pre>
                         </div>
                     </div>
-
-                    <!-- Case 3 -->
                     <div class="use-case-card">
                         <div class="case-header">
                             <span class="case-icon">🎨</span>
-                            <h4>Thiết kế Dashboard</h4>
-                        </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Cần làm admin dashboard mới
+                            <h4>Design Dashboard</h4>
                         </div>
                         <div class="case-commands">
-                            <pre><code># Brainstorm ý tưởng trước
-/brainstorm "dashboard layout for admin panel"
-
-# Sau đó design
-/design "create admin dashboard with charts, tables"</code></pre>
+                            <pre><code>/brainstorm "dashboard layout"
+/design "admin panel with charts"</code></pre>
                         </div>
                     </div>
-
-                    <!-- Case 4 -->
                     <div class="use-case-card">
                         <div class="case-header">
                             <span class="case-icon">📱</span>
                             <h4>Thêm API Endpoint</h4>
                         </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Frontend cần API mới cho user profile
-                        </div>
                         <div class="case-commands">
-                            <pre><code># Quick mode (routes to GLM - fast & cheap)
-vok "create REST API endpoint for user profile CRUD"
-
-# Hoặc session mode
-/code "implement GET/POST/PUT/DELETE /api/users/:id"</code></pre>
-                        </div>
-                    </div>
-
-                    <!-- Case 5 -->
-                    <div class="use-case-card">
-                        <div class="case-header">
-                            <span class="case-icon">🧪</span>
-                            <h4>Viết Unit Tests</h4>
-                        </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Code coverage thấp, cần thêm tests
-                        </div>
-                        <div class="case-commands">
-                            <pre><code>/test "write unit tests for auth service"
-
-# Hoặc fix tests đang fail
-/fix "fix failing tests in user.spec.ts"</code></pre>
-                        </div>
-                    </div>
-
-                    <!-- Case 6 -->
-                    <div class="use-case-card">
-                        <div class="case-header">
-                            <span class="case-icon">📝</span>
-                            <h4>Viết Documentation</h4>
-                        </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Project thiếu docs, team mới không hiểu code
-                        </div>
-                        <div class="case-commands">
-                            <pre><code>/docs "create API documentation for all endpoints"
-
-# Hoặc update existing
-/docs "update README with new features"</code></pre>
-                        </div>
-                    </div>
-
-                    <!-- Case 7 -->
-                    <div class="use-case-card">
-                        <div class="case-header">
-                            <span class="case-icon">🔄</span>
-                            <h4>Refactor Code</h4>
-                        </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Code cũ messy, cần clean up
-                        </div>
-                        <div class="case-commands">
-                            <pre><code># Review trước
-/review "analyze code quality in src/services"
-
-# Sau đó refactor
-/cook "refactor auth service to use dependency injection"</code></pre>
-                        </div>
-                    </div>
-
-                    <!-- Case 8 -->
-                    <div class="use-case-card">
-                        <div class="case-header">
-                            <span class="case-icon">🚀</span>
-                            <h4>Deploy & Git</h4>
-                        </div>
-                        <div class="case-scenario">
-                            <strong>Tình huống:</strong> Xong feature, cần commit và push
-                        </div>
-                        <div class="case-commands">
-                            <pre><code># Commit với message tự động
-/git commit
-
-# Commit và push
-/git push
-
-# Tạo pull request
-/git pr "Feature: Add user authentication"</code></pre>
+                            <pre><code>vok "create REST API for users"
+# Routes to GLM (cheap, fast)</code></pre>
                         </div>
                     </div>
                 </div>
@@ -462,90 +537,44 @@ vok "create REST API endpoint for user profile CRUD"
             <!-- Workflows Section -->
             <section id="workflows">
                 <h2>🔄 Common Workflows</h2>
-
                 <div class="workflows-container">
-                    <!-- Workflow 1 -->
-                    <div class="workflow-card safe">
-                        <div class="workflow-header">
-                            <span class="workflow-badge safe">🛡️ SAFE MODE</span>
-                            <h4>Build Feature (An toàn)</h4>
-                        </div>
-                        <div class="workflow-flow">
-                            <div class="flow-step">
-                                <code>/brainstorm</code>
-                                <span>Khám phá options</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/plan</code>
-                                <span>Tạo plan chi tiết</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/code @plan.md</code>
-                                <span>Implement theo plan</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/review</code>
-                                <span>Review code</span>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/git push</code>
-                                <span>Commit & push</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Workflow 2 -->
                     <div class="workflow-card fast">
                         <div class="workflow-header">
-                            <span class="workflow-badge fast">⚡ FAST MODE</span>
-                            <h4>Build Feature (Nhanh)</h4>
+                            <span class="workflow-badge fast">⚡ FAST</span>
+                            <h4>Quick Feature</h4>
                         </div>
                         <div class="workflow-flow">
-                            <div class="flow-step highlight">
-                                <code>/cook</code>
-                                <span>Research → Plan → Implement → Test → Review</span>
-                            </div>
+                            <div class="flow-step highlight"><code>/cook</code></div>
                             <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/git push</code>
-                                <span>Commit when approved</span>
-                            </div>
-                        </div>
-                        <div class="workflow-note">
-                            ⚡ <code>/cook</code> = All-in-one, làm tất cả trong 1 command
+                            <div class="flow-step"><code>/git push</code></div>
                         </div>
                     </div>
-
-                    <!-- Workflow 3 -->
-                    <div class="workflow-card debug">
+                    <div class="workflow-card safe">
                         <div class="workflow-header">
-                            <span class="workflow-badge debug">🐛 DEBUG MODE</span>
-                            <h4>Debugging & Fixing</h4>
+                            <span class="workflow-badge safe">🛡️ SAFE</span>
+                            <h4>Careful Feature</h4>
                         </div>
                         <div class="workflow-flow">
-                            <div class="flow-step">
-                                <code>/debug</code>
-                                <span>Tìm root cause</span>
-                            </div>
+                            <div class="flow-step"><code>/plan</code></div>
                             <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/fix</code>
-                                <span>Fix issue</span>
-                            </div>
+                            <div class="flow-step"><code>/code</code></div>
                             <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/test</code>
-                                <span>Verify fix</span>
-                            </div>
+                            <div class="flow-step"><code>/review</code></div>
                             <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <code>/git commit</code>
-                                <span>Commit fix</span>
-                            </div>
+                            <div class="flow-step"><code>/git</code></div>
+                        </div>
+                    </div>
+                    <div class="workflow-card debug">
+                        <div class="workflow-header">
+                            <span class="workflow-badge debug">🐛 DEBUG</span>
+                            <h4>Fix Issues</h4>
+                        </div>
+                        <div class="workflow-flow">
+                            <div class="flow-step"><code>/debug</code></div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step"><code>/fix</code></div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step"><code>/test</code></div>
                         </div>
                     </div>
                 </div>
@@ -554,54 +583,39 @@ vok "create REST API endpoint for user profile CRUD"
             <!-- Pro Tips Section -->
             <section id="tips">
                 <h2>💪 Pro Tips</h2>
-
                 <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-header">
-                            <span class="tip-icon">⚡</span>
-                            <h4>Speed vs Safety Trade-off</h4>
-                        </div>
-                        <ul>
-                            <li>Dùng <code>/cook</code> khi tự tin và muốn nhanh</li>
-                            <li>Dùng <code>/plan → /code</code> khi cần review trước</li>
-                        </ul>
-                    </div>
-
-                    <div class="tip-card warning">
-                        <div class="tip-header">
-                            <span class="tip-icon">⚠️</span>
-                            <h4>Đừng bao giờ mix workflows</h4>
-                        </div>
-                        <ul>
-                            <li>❌ <code>/plan → /cook</code> (cook đã có planning)</li>
-                            <li>✅ <code>/plan → /code</code> (đúng flow)</li>
-                            <li>✅ <code>/cook</code> standalone (có internal planning)</li>
-                        </ul>
-                    </div>
-
                     <div class="tip-card">
                         <div class="tip-header">
                             <span class="tip-icon">💰</span>
                             <h4>Tiết kiệm chi phí</h4>
                         </div>
                         <ul>
-                            <li>Coding tasks → GLM (cheap, fast)</li>
-                            <li>Review tasks → Gemini (FREE)</li>
-                            <li>Planning → Antigravity (FREE)</li>
-                            <li>Chi phí quan trọng → <code>--profile claude</code></li>
+                            <li>Coding → <code>GLM</code> ($0.001)</li>
+                            <li>Review → <code>Gemini</code> (FREE)</li>
+                            <li>Planning → <code>Agy</code> (FREE)</li>
+                            <li>Critical → <code>Claude</code></li>
                         </ul>
                     </div>
-
+                    <div class="tip-card warning">
+                        <div class="tip-header">
+                            <span class="tip-icon">⚠️</span>
+                            <h4>Đừng mix workflows</h4>
+                        </div>
+                        <ul>
+                            <li>❌ <code>/plan → /cook</code></li>
+                            <li>✅ <code>/plan → /code</code></li>
+                            <li>✅ <code>/cook</code> standalone</li>
+                        </ul>
+                    </div>
                     <div class="tip-card">
                         <div class="tip-header">
                             <span class="tip-icon">🔀</span>
-                            <h4>Multi-Terminal (Parallel)</h4>
+                            <h4>Parallel Execution</h4>
                         </div>
                         <ul>
-                            <li>VOK hỗ trợ <strong>parallel execution</strong></li>
-                            <li>Backend + Frontend có thể chạy song song</li>
-                            <li>Subagents (researcher, coder) chạy parallel</li>
-                            <li>Config: <code>vok_config.json → parallelExecution: true</code></li>
+                            <li>Backend + Frontend chạy song song</li>
+                            <li>Subagents hoạt động parallel</li>
+                            <li>Config: <code>parallelExecution: true</code></li>
                         </ul>
                     </div>
                 </div>
@@ -618,23 +632,23 @@ vok "create REST API endpoint for user profile CRUD"
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Tạo project mới từ đầu</td>
+                                <td>Tạo project mới</td>
                                 <td><code>/bootstrap</code></td>
                             </tr>
                             <tr>
-                                <td>Có ý tưởng nhưng chưa rõ cách làm</td>
+                                <td>Chưa rõ cách làm</td>
                                 <td><code>/brainstorm</code></td>
                             </tr>
                             <tr>
-                                <td>Biết chính xác yêu cầu, làm nhanh</td>
+                                <td>Làm nhanh</td>
                                 <td><code>/cook</code></td>
                             </tr>
                             <tr>
-                                <td>Muốn plan kỹ trước khi code</td>
+                                <td>Plan kỹ trước</td>
                                 <td><code>/plan → /code</code></td>
                             </tr>
                             <tr>
-                                <td>Có bug, không biết lỗi ở đâu</td>
+                                <td>Không biết lỗi ở đâu</td>
                                 <td><code>/debug</code></td>
                             </tr>
                             <tr>
@@ -642,20 +656,12 @@ vok "create REST API endpoint for user profile CRUD"
                                 <td><code>/fix</code></td>
                             </tr>
                             <tr>
-                                <td>Commit và push</td>
+                                <td>Commit & push</td>
                                 <td><code>/git push</code></td>
                             </tr>
                             <tr>
-                                <td>Hiểu codebase hiện có</td>
+                                <td>Hiểu codebase</td>
                                 <td><code>/scout</code></td>
-                            </tr>
-                            <tr>
-                                <td>Thiết kế UI</td>
-                                <td><code>/design</code></td>
-                            </tr>
-                            <tr>
-                                <td>Viết documentation</td>
-                                <td><code>/docs</code></td>
                             </tr>
                         </tbody>
                     </table>
@@ -664,16 +670,15 @@ vok "create REST API endpoint for user profile CRUD"
 
             <!-- CTA -->
             <div class="guides-cta">
-                <h3>Không chắc? Bắt đầu với Session Mode!</h3>
-                <pre><code>vok --session "describe what you want to do"</code></pre>
-                <p>AI sẽ guide bạn step-by-step với đúng commands.</p>
-                <a href="docs.html" class="btn btn-primary">📚 Xem Full Documentation</a>
+                <h3>Sẵn sàng bắt đầu?</h3>
+                <pre><code>vok --session "describe what you want"</code></pre>
+                <a href="docs.html" class="btn btn-primary">📚 Full Documentation</a>
             </div>
         </main>
     </div>
 
     <script>
-        // Smooth scroll & active state
+        // Smooth scroll
         document.querySelectorAll('.guides-sidebar a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -697,18 +702,14 @@ vok "create REST API endpoint for user profile CRUD"
             });
             document.querySelectorAll('.guides-sidebar a').forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
             });
         });
 
-        // Highlight command nodes on click
-        document.querySelectorAll('.tree-node.command').forEach(node => {
-            node.addEventListener('click', function () {
-                document.querySelectorAll('.tree-node.command').forEach(n => n.classList.remove('highlight'));
-                this.classList.add('highlight');
-            });
+        // Animate route options
+        const routeOpts = document.querySelectorAll('.route-opt');
+        routeOpts.forEach((opt, i) => {
+            opt.style.animationDelay = `${i * 0.1}s`;
         });
     </script>
 </body>
