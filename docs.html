@@ -1,281 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOK Documentation | Vibecode Omni Kit</title>
-    <meta name="description" content="Complete documentation for VOK - Smart AI Router, Agents, Skills, and Commands">
+    <title>VOK Documentation | Complete Guide</title>
+    <meta name="description" content="Tài liệu chi tiết VOK - Smart Router, Agents, Skills, Commands">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Docs-specific styles */
-        .docs-layout {
-            display: flex;
-            min-height: 100vh;
-            padding-top: 72px;
-        }
-
-        .docs-sidebar {
-            width: 280px;
-            position: fixed;
-            top: 72px;
-            left: 0;
-            bottom: 0;
-            background: var(--color-bg-secondary);
-            border-right: 1px solid var(--color-border);
-            padding: var(--space-xl);
-            overflow-y: auto;
-        }
-
-        .docs-sidebar h3 {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--color-text-muted);
-            margin-bottom: var(--space-md);
-            margin-top: var(--space-xl);
-        }
-
-        .docs-sidebar h3:first-child {
-            margin-top: 0;
-        }
-
-        .docs-sidebar a {
-            display: block;
-            padding: var(--space-sm) var(--space-md);
-            margin-left: calc(-1 * var(--space-md));
-            border-radius: var(--radius-md);
-            color: var(--color-text-secondary);
-            font-size: 0.875rem;
-            transition: var(--transition-fast);
-        }
-
-        .docs-sidebar a:hover {
-            background: var(--color-surface);
-            color: var(--color-text);
-        }
-
-        .docs-sidebar a.active {
-            background: rgba(255, 107, 74, 0.1);
-            color: var(--color-primary);
-        }
-
-        .docs-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: var(--space-3xl);
-            max-width: 900px;
-        }
-
-        .docs-content h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .docs-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-top: var(--space-3xl);
-            margin-bottom: var(--space-lg);
-            padding-bottom: var(--space-md);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .docs-content h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-top: var(--space-xl);
-            margin-bottom: var(--space-md);
-            color: var(--color-primary-light);
-        }
-
-        .docs-content p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-lg);
-            line-height: 1.8;
-        }
-
-        .docs-content ul,
-        .docs-content ol {
-            margin-bottom: var(--space-lg);
-            padding-left: var(--space-xl);
-        }
-
-        .docs-content li {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-sm);
-            line-height: 1.7;
-        }
-
-        .docs-content code {
-            font-family: var(--font-mono);
-            background: var(--color-surface);
-            padding: 0.125rem 0.375rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.875em;
-            color: var(--color-primary-light);
-        }
-
-        .docs-content pre {
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-lg);
-            margin-bottom: var(--space-lg);
-            overflow-x: auto;
-        }
-
-        .docs-content pre code {
-            background: none;
-            padding: 0;
-            color: var(--color-text);
-        }
-
-        .docs-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: var(--space-xl);
-            background: var(--color-surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .docs-table th,
-        .docs-table td {
-            padding: var(--space-md) var(--space-lg);
-            text-align: left;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .docs-table th {
-            background: var(--color-bg-tertiary);
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: var(--color-text-muted);
-        }
-
-        .docs-table td {
-            font-size: 0.9375rem;
-            color: var(--color-text-secondary);
-        }
-
-        .docs-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.125rem 0.5rem;
-            border-radius: var(--radius-full);
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .badge-glm {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-        }
-
-        .badge-gemini {
-            background: rgba(59, 130, 246, 0.2);
-            color: #3b82f6;
-        }
-
-        .badge-agy {
-            background: rgba(168, 85, 247, 0.2);
-            color: #a855f7;
-        }
-
-        .badge-claude {
-            background: rgba(255, 107, 74, 0.2);
-            color: #ff6b4a;
-        }
-
-        .badge-free {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-        }
-
-        .feature-item {
-            padding: var(--space-lg);
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            transition: var(--transition-fast);
-        }
-
-        .feature-item:hover {
-            border-color: var(--color-primary);
-        }
-
-        .feature-item .icon {
-            font-size: 1.5rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .feature-item h4 {
-            font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: var(--space-xs);
-        }
-
-        .feature-item p {
-            font-size: 0.8125rem;
-            color: var(--color-text-muted);
-            margin: 0;
-        }
-
-        .command-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: var(--space-sm);
-            margin-bottom: var(--space-xl);
-        }
-
-        .command-item {
-            padding: var(--space-md);
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            font-family: var(--font-mono);
-            font-size: 0.875rem;
-            color: var(--color-primary);
-        }
-
-        @media (max-width: 768px) {
-            .docs-sidebar {
-                display: none;
-            }
-
-            .docs-content {
-                margin-left: 0;
-                padding: var(--space-xl);
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="docs.css">
 </head>
 
 <body>
-    <!-- Aurora Background -->
     <div class="aurora-bg"></div>
 
     <!-- Navigation -->
@@ -287,16 +27,12 @@
                 <span class="logo-badge">v2.2</span>
             </a>
             <div class="nav-links">
-                <a href="index.html#features">Features</a>
-                <a href="index.html#agents">Agents</a>
-                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html">Home</a>
                 <a href="docs.html" class="active">Docs</a>
+                <a href="guides.html">Guides</a>
             </div>
             <a href="https://github.com/TUAN130294/vok" target="_blank" class="nav-cta">
-                <span>Get Started</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
+                <span>GitHub</span>
             </a>
         </div>
     </nav>
@@ -304,331 +40,623 @@
     <div class="docs-layout">
         <!-- Sidebar -->
         <aside class="docs-sidebar">
-            <h3>Getting Started</h3>
-            <a href="#quick-start" class="active">Quick Start</a>
-            <a href="#installation">Installation</a>
-            <a href="#configuration">Configuration</a>
+            <h3>🚀 Bắt đầu</h3>
+            <a href="#intro" class="active">Giới thiệu</a>
+            <a href="#install">Cài đặt</a>
+            <a href="#config">Cấu hình API</a>
 
-            <h3>Core Features</h3>
-            <a href="#smart-routing">Smart AI Routing</a>
-            <a href="#cost-savings">Cost Savings</a>
+            <h3>📖 Hướng dẫn sử dụng</h3>
+            <a href="#quick-mode">Quick Mode</a>
+            <a href="#session-mode">Session Mode</a>
+            <a href="#routing">Smart Routing</a>
 
-            <h3>AI Agents</h3>
-            <a href="#agents">19 AI Agents</a>
-            <a href="#agent-list">Agent List</a>
+            <h3>🤖 19 AI Agents</h3>
+            <a href="#agents-overview">Tổng quan Agents</a>
+            <a href="#agents-detail">Chi tiết từng Agent</a>
+            <a href="#agents-when">Khi nào dùng Agent nào</a>
 
-            <h3>Skills & Commands</h3>
-            <a href="#skills">36+ Skills</a>
-            <a href="#commands">Slash Commands</a>
+            <h3>🛠️ 36+ Skills</h3>
+            <a href="#skills-overview">Tổng quan Skills</a>
+            <a href="#skills-list">Danh sách Skills</a>
+            <a href="#skills-call">Cách gọi Skill</a>
 
-            <h3>Desktop App</h3>
-            <a href="#desktop">VOK Desktop</a>
-            <a href="#views">Views</a>
+            <h3>⌨️ 18 Commands</h3>
+            <a href="#cmd-overview">Tổng quan Commands</a>
+            <a href="#cmd-detail">Chi tiết Commands</a>
+            <a href="#cmd-when">Khi nào dùng Command nào</a>
 
-            <h3>Reference</h3>
+            <h3>⚙️ Nâng cao</h3>
             <a href="#providers">AI Providers</a>
             <a href="#thinking">Thinking Levels</a>
+            <a href="#ccs">CCS Commands</a>
         </aside>
 
         <!-- Main Content -->
         <main class="docs-content">
             <h1>📚 VOK Documentation</h1>
-            <p>Welcome to the VOK (Vibecode Omni Kit) documentation. VOK is a unified AI development platform that
-                automatically routes tasks to the best AI model, saving you 40-70% on API costs.</p>
+            <p class="intro-text">Tài liệu đầy đủ cho VOK (Vibecode Omni Kit) v2.2 - Smart AI Router cho developers.</p>
 
-            <h2 id="quick-start">🚀 Quick Start</h2>
-            <p>Get up and running with VOK in under 60 seconds:</p>
+            <!-- INTRO -->
+            <section id="intro">
+                <h2>💡 VOK là gì?</h2>
+                <p><strong>VOK (Vibecode Omni Kit)</strong> là nền tảng AI development mã nguồn mở, hoạt động như một
+                    <em>Smart Router</em> thông minh:
+                </p>
+                <ul>
+                    <li>Tự động phân tích task và chọn AI model tối ưu</li>
+                    <li>Tiết kiệm 40-70% chi phí API</li>
+                    <li>19 agents chuyên biệt cho từng domain</li>
+                    <li>36+ skills covering mọi lĩnh vực development</li>
+                    <li>18 slash commands để gọi nhanh</li>
+                </ul>
 
-            <pre><code># 1. Clone the repository
+                <div class="info-box">
+                    <div class="info-icon">🎯</div>
+                    <div class="info-content">
+                        <strong>Nguyên lý hoạt động:</strong> Thay vì bạn tự chọn model, VOK phân tích keywords trong
+                        task và route đến provider phù hợp nhất về chi phí lẫn chất lượng.
+                    </div>
+                </div>
+            </section>
+
+            <!-- INSTALL -->
+            <section id="install">
+                <h2>🚀 Cài đặt (1 lệnh)</h2>
+                <pre><code># Clone repository
 git clone https://github.com/TUAN130294/vok.git
 cd vok
 
-# 2. Run setup (Windows)
-./setup.ps1
+# Windows (PowerShell as Admin)
+.\setup.ps1
 
-# 3. Run setup (Mac/Linux)
-chmod +x setup.sh && ./setup.sh
+# Linux/Mac
+chmod +x setup.sh && ./setup.sh</code></pre>
+                <div class="warning-box">⚠️ <strong>Quan trọng:</strong> Restart terminal sau khi cài đặt!</div>
+            </section>
 
-# 4. Configure AI providers
-ccs config
+            <!-- CONFIG -->
+            <section id="config">
+                <h2>⚙️ Cấu hình API Keys</h2>
+                <p>VOK sử dụng <strong>CCS</strong> để quản lý AI providers. Có 3 cách cấu hình:</p>
 
-# 5. Start using VOK!
-vok "implement user authentication"</code></pre>
+                <h3>Cách 1: Web Dashboard (Dễ nhất)</h3>
+                <pre><code>ccs config</code></pre>
+                <p>Mở dashboard trong browser, thêm API keys qua giao diện.</p>
 
-            <h2 id="smart-routing">🧠 Smart AI Routing</h2>
-            <p>VOK automatically analyzes your task and routes it to the optimal AI model:</p>
+                <h3>Cách 2: OAuth Login (Miễn phí)</h3>
+                <pre><code># Gemini (Free - Google account)
+ccs gemini --auth
 
-            <table class="docs-table">
-                <thead>
-                    <tr>
-                        <th>Task Type</th>
-                        <th>Routes To</th>
-                        <th>Why</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Coding</strong></td>
-                        <td><span class="badge badge-glm">GLM</span></td>
-                        <td>Fast & cheap</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Review</strong></td>
-                        <td><span class="badge badge-gemini">Gemini</span></td>
-                        <td>Free, good analysis</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Planning</strong></td>
-                        <td><span class="badge badge-agy">Antigravity</span></td>
-                        <td>Deep reasoning</td>
-                    </tr>
-                    <tr>
-                        <td><strong>UI/UX</strong></td>
-                        <td><span class="badge badge-agy">Antigravity</span></td>
-                        <td>Creative</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Complex</strong></td>
-                        <td><span class="badge badge-claude">Claude</span></td>
-                        <td>Maximum accuracy</td>
-                    </tr>
-                </tbody>
-            </table>
+# Antigravity (Free - OAuth)
+ccs agy --auth</code></pre>
 
-            <h2 id="cost-savings">💰 Cost Savings</h2>
-            <p>VOK saves you 40-70% on AI API costs by using the right model for each task:</p>
+                <h3>Cách 3: API Key (Trả phí)</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Provider</th>
+                            <th>Đăng ký</th>
+                            <th>Chi phí</th>
+                            <th>Command</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Gemini</td>
+                            <td>aistudio.google.com</td>
+                            <td>🆓 Free</td>
+                            <td><code>ccs gemini --auth</code></td>
+                        </tr>
+                        <tr>
+                            <td>Antigravity</td>
+                            <td>antigravity.ai</td>
+                            <td>🆓 Free</td>
+                            <td><code>ccs agy --auth</code></td>
+                        </tr>
+                        <tr>
+                            <td>GLM</td>
+                            <td>open.bigmodel.cn</td>
+                            <td>$0.001/1K</td>
+                            <td><code>ccs glm --config</code></td>
+                        </tr>
+                        <tr>
+                            <td>Kimi</td>
+                            <td>platform.moonshot.cn</td>
+                            <td>Low</td>
+                            <td><code>ccs kimi --config</code></td>
+                        </tr>
+                        <tr>
+                            <td>Claude</td>
+                            <td>console.anthropic.com</td>
+                            <td>$$$</td>
+                            <td><code>ccs claude --config</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <table class="docs-table">
-                <thead>
-                    <tr>
-                        <th>Provider</th>
-                        <th>Cost</th>
-                        <th>Auth Method</th>
-                        <th>Best For</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><span class="badge badge-gemini">Gemini</span></td>
-                        <td><span class="badge badge-free">FREE</span></td>
-                        <td>OAuth</td>
-                        <td>Reviews, analysis</td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-agy">Antigravity</span></td>
-                        <td><span class="badge badge-free">FREE</span></td>
-                        <td>OAuth</td>
-                        <td>Planning, design</td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-glm">GLM</span></td>
-                        <td>$0.001/1K</td>
-                        <td>API Key</td>
-                        <td>Coding tasks</td>
-                    </tr>
-                    <tr>
-                        <td><span class="badge badge-claude">Claude</span></td>
-                        <td>$$$</td>
-                        <td>API Key</td>
-                        <td>Critical tasks</td>
-                    </tr>
-                </tbody>
-            </table>
+            <!-- QUICK MODE -->
+            <section id="quick-mode">
+                <h2>⚡ Quick Mode (Auto-Route)</h2>
+                <p>Chế độ nhanh nhất - VOK tự động phân tích task và route đến AI phù hợp:</p>
+                <pre><code># Coding task → Routes to GLM (fast, cheap)
+vok "implement user authentication"
 
-            <h2 id="agents">🤖 AI Agents</h2>
-            <p>VOK includes 19 specialized AI agents, each expert in their domain:</p>
+# Review task → Routes to Gemini (free)
+vok "review this code for security issues"
 
-            <div class="feature-grid" id="agent-list">
-                <div class="feature-item">
-                    <div class="icon">💻</div>
-                    <h4>Coder</h4>
-                    <p>Production-ready code</p>
+# Planning task → Routes to Antigravity (reasoning)
+vok "design system architecture for e-commerce"
+
+# Force dùng profile cụ thể
+vok --profile claude "critical security implementation"</code></pre>
+            </section>
+
+            <!-- SESSION MODE -->
+            <section id="session-mode">
+                <h2>💬 Session Mode (Slash Commands)</h2>
+                <p>Chế độ interactive với đầy đủ slash commands:</p>
+                <pre><code># Mở session mode
+vok --session
+
+# Mở session với task ban đầu
+vok --session "implement login feature"
+
+# Với profile cụ thể
+vok --session --profile agy</code></pre>
+
+                <p>Trong session, sử dụng slash commands:</p>
+                <pre><code>/plan    → Tạo implementation plan
+/cook    → Code với auto-planning
+/code    → Implement code trực tiếp
+/fix     → Sửa lỗi
+/review  → Code review
+/test    → Chạy tests</code></pre>
+            </section>
+
+            <!-- ROUTING -->
+            <section id="routing">
+                <h2>🎯 Smart Routing Logic</h2>
+                <p>VOK phân tích keywords trong task để chọn AI:</p>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Role</th>
+                            <th>Keywords</th>
+                            <th>Routes To</th>
+                            <th>Lý do</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>CODER</strong></td>
+                            <td>implement, write, create, build</td>
+                            <td>GLM</td>
+                            <td>Nhanh, rẻ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>REVIEWER</strong></td>
+                            <td>review, check, analyze, audit, test</td>
+                            <td>Gemini</td>
+                            <td>Free, phân tích tốt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ARCHITECT</strong></td>
+                            <td>plan, design, architect, roadmap</td>
+                            <td>Antigravity</td>
+                            <td>Deep reasoning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DESIGNER</strong></td>
+                            <td>html, css, ui, ux, frontend, style</td>
+                            <td>Antigravity</td>
+                            <td>Sáng tạo</td>
+                        </tr>
+                        <tr>
+                            <td><strong>COMPLEX</strong></td>
+                            <td>complex, critical, important, security</td>
+                            <td>Claude</td>
+                            <td>Premium accuracy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- AGENTS OVERVIEW -->
+            <section id="agents-overview">
+                <h2>🤖 Tổng quan 19 AI Agents</h2>
+                <p>Mỗi agent là một <strong>system prompt chuyên biệt</strong> được lưu tại
+                    <code>.claude/agents/</code>:
+                </p>
+                <div class="agents-grid-docs">
+                    <div class="agent-item"><span>💻</span> Coder</div>
+                    <div class="agent-item"><span>🏗️</span> Architect</div>
+                    <div class="agent-item"><span>🔍</span> Code Reviewer</div>
+                    <div class="agent-item"><span>🎨</span> UI/UX Designer</div>
+                    <div class="agent-item"><span>🐛</span> Debugger</div>
+                    <div class="agent-item"><span>🧪</span> Tester</div>
+                    <div class="agent-item"><span>📋</span> Planner</div>
+                    <div class="agent-item"><span>🗄️</span> Database Admin</div>
+                    <div class="agent-item"><span>📦</span> Git Manager</div>
+                    <div class="agent-item"><span>📚</span> Docs Manager</div>
+                    <div class="agent-item"><span>🔬</span> Researcher</div>
+                    <div class="agent-item"><span>💡</span> Brainstormer</div>
+                    <div class="agent-item"><span>🔎</span> Scout</div>
+                    <div class="agent-item"><span>🌐</span> Scout External</div>
+                    <div class="agent-item"><span>✍️</span> Copywriter</div>
+                    <div class="agent-item"><span>🛠️</span> Fullstack Dev</div>
+                    <div class="agent-item"><span>📓</span> Journal Writer</div>
+                    <div class="agent-item"><span>🔌</span> MCP Manager</div>
+                    <div class="agent-item"><span>📊</span> Project Manager</div>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">🏗️</div>
-                    <h4>Architect</h4>
-                    <p>System design</p>
+            </section>
+
+            <!-- AGENTS DETAIL -->
+            <section id="agents-detail">
+                <h2>📋 Chi tiết từng Agent</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>File</th>
+                            <th>Mô tả</th>
+                            <th>Khi nào dùng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>💻 Coder</td>
+                            <td>coder.md</td>
+                            <td>Viết production-ready code</td>
+                            <td>Implement features, write functions</td>
+                        </tr>
+                        <tr>
+                            <td>🏗️ Architect</td>
+                            <td>architect.md</td>
+                            <td>Thiết kế system architecture</td>
+                            <td>Design patterns, system structure</td>
+                        </tr>
+                        <tr>
+                            <td>🔍 Code Reviewer</td>
+                            <td>code-reviewer.md</td>
+                            <td>Review code quality</td>
+                            <td>PR reviews, quality audits</td>
+                        </tr>
+                        <tr>
+                            <td>🎨 UI/UX Designer</td>
+                            <td>ui-ux-designer.md</td>
+                            <td>Thiết kế giao diện</td>
+                            <td>HTML/CSS, component design</td>
+                        </tr>
+                        <tr>
+                            <td>🐛 Debugger</td>
+                            <td>debugger.md</td>
+                            <td>Tìm và fix bugs</td>
+                            <td>Debug issues, error tracing</td>
+                        </tr>
+                        <tr>
+                            <td>🧪 Tester</td>
+                            <td>tester.md</td>
+                            <td>Viết tests, QA</td>
+                            <td>Unit tests, integration tests</td>
+                        </tr>
+                        <tr>
+                            <td>📋 Planner</td>
+                            <td>planner.md</td>
+                            <td>Lập kế hoạch implementation</td>
+                            <td>Task breakdown, roadmaps</td>
+                        </tr>
+                        <tr>
+                            <td>🗄️ Database Admin</td>
+                            <td>database-admin.md</td>
+                            <td>Quản lý database</td>
+                            <td>Queries, migrations, optimization</td>
+                        </tr>
+                        <tr>
+                            <td>📦 Git Manager</td>
+                            <td>git-manager.md</td>
+                            <td>Quản lý version control</td>
+                            <td>Commits, branches, merges</td>
+                        </tr>
+                        <tr>
+                            <td>📚 Docs Manager</td>
+                            <td>docs-manager.md</td>
+                            <td>Viết documentation</td>
+                            <td>README, API docs, guides</td>
+                        </tr>
+                        <tr>
+                            <td>🔬 Researcher</td>
+                            <td>researcher.md</td>
+                            <td>Nghiên cứu công nghệ</td>
+                            <td>Tech research, comparisons</td>
+                        </tr>
+                        <tr>
+                            <td>💡 Brainstormer</td>
+                            <td>brainstormer.md</td>
+                            <td>Brainstorm ý tưởng</td>
+                            <td>Ideas, solutions, alternatives</td>
+                        </tr>
+                        <tr>
+                            <td>🔎 Scout</td>
+                            <td>scout.md</td>
+                            <td>Phân tích codebase</td>
+                            <td>Understand existing code</td>
+                        </tr>
+                        <tr>
+                            <td>🌐 Scout External</td>
+                            <td>scout-external.md</td>
+                            <td>Web research</td>
+                            <td>External resources, APIs</td>
+                        </tr>
+                        <tr>
+                            <td>✍️ Copywriter</td>
+                            <td>copywriter.md</td>
+                            <td>Viết content</td>
+                            <td>Marketing copy, UX writing</td>
+                        </tr>
+                        <tr>
+                            <td>🛠️ Fullstack Dev</td>
+                            <td>fullstack-developer.md</td>
+                            <td>End-to-end development</td>
+                            <td>Full features, integrations</td>
+                        </tr>
+                        <tr>
+                            <td>📓 Journal Writer</td>
+                            <td>journal-writer.md</td>
+                            <td>Viết dev logs</td>
+                            <td>Progress tracking, notes</td>
+                        </tr>
+                        <tr>
+                            <td>🔌 MCP Manager</td>
+                            <td>mcp-manager.md</td>
+                            <td>Quản lý MCP protocols</td>
+                            <td>MCP tools, integrations</td>
+                        </tr>
+                        <tr>
+                            <td>📊 Project Manager</td>
+                            <td>project-manager.md</td>
+                            <td>Quản lý dự án</td>
+                            <td>Coordination, planning</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- SKILLS -->
+            <section id="skills-overview">
+                <h2>🛠️ Tổng quan 36+ Skills</h2>
+                <p>Skills là <strong>domain expertise</strong> được lưu tại <code>.claude/skills/</code>. Mỗi skill chứa
+                    best practices, patterns, và hướng dẫn chi tiết.</p>
+            </section>
+
+            <section id="skills-list">
+                <h3>Danh sách Skills theo Category</h3>
+                <div class="skills-docs-grid">
+                    <div class="skill-cat">
+                        <h4>💻 Development</h4>
+                        <ul>
+                            <li>backend-development</li>
+                            <li>frontend-development</li>
+                            <li>frontend-design</li>
+                            <li>mobile-development</li>
+                            <li>databases</li>
+                            <li>web-frameworks</li>
+                        </ul>
+                    </div>
+                    <div class="skill-cat">
+                        <h4>🎨 Design & UI</h4>
+                        <ul>
+                            <li>aesthetic</li>
+                            <li>ui-styling</li>
+                            <li>ui-ux-pro-max</li>
+                            <li>frontend-design-pro</li>
+                            <li>threejs</li>
+                        </ul>
+                    </div>
+                    <div class="skill-cat">
+                        <h4>⚙️ DevOps & Tools</h4>
+                        <ul>
+                            <li>devops</li>
+                            <li>debugging</li>
+                            <li>code-review</li>
+                            <li>chrome-devtools</li>
+                            <li>repomix</li>
+                        </ul>
+                    </div>
+                    <div class="skill-cat">
+                        <h4>🧠 AI & Advanced</h4>
+                        <ul>
+                            <li>ai-multimodal</li>
+                            <li>sequential-thinking</li>
+                            <li>problem-solving</li>
+                            <li>research</li>
+                        </ul>
+                    </div>
+                    <div class="skill-cat">
+                        <h4>🔌 Integration</h4>
+                        <ul>
+                            <li>mcp-builder</li>
+                            <li>mcp-management</li>
+                            <li>payment-integration</li>
+                            <li>shopify</li>
+                            <li>better-auth</li>
+                        </ul>
+                    </div>
+                    <div class="skill-cat">
+                        <h4>📝 Planning & Docs</h4>
+                        <ul>
+                            <li>planning</li>
+                            <li>plans-kanban</li>
+                            <li>document-skills</li>
+                            <li>docs-seeker</li>
+                            <li>skill-creator</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">🔍</div>
-                    <h4>Reviewer</h4>
-                    <p>Code quality</p>
+            </section>
+
+            <section id="skills-call">
+                <h3>Cách gọi Skill</h3>
+                <pre><code># Trong Session Mode, dùng /skill command
+/skill ui-styling
+/skill backend-development
+/skill mcp-builder
+
+# Skills tự động được load dựa trên context
+# Ví dụ: task về UI tự động load aesthetic, ui-styling</code></pre>
+            </section>
+
+            <!-- COMMANDS -->
+            <section id="cmd-overview">
+                <h2>⌨️ Tổng quan 18 Slash Commands</h2>
+                <p>Commands là shortcuts để gọi đúng agent với đúng skill. Chỉ hoạt động trong <strong>Session
+                        Mode</strong>.</p>
+            </section>
+
+            <section id="cmd-detail">
+                <h3>Chi tiết tất cả Commands</h3>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Command</th>
+                            <th>Agent</th>
+                            <th>Mô tả</th>
+                            <th>Ví dụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/plan</code></td>
+                            <td>Planner</td>
+                            <td>Tạo implementation plan</td>
+                            <td><code>/plan user auth system</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/cook</code></td>
+                            <td>Coder</td>
+                            <td>Code với auto-planning</td>
+                            <td><code>/cook todo app</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/code</code></td>
+                            <td>Coder</td>
+                            <td>Implement trực tiếp</td>
+                            <td><code>/code login function</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/fix</code></td>
+                            <td>Debugger</td>
+                            <td>Sửa lỗi</td>
+                            <td><code>/fix null pointer error</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/review</code></td>
+                            <td>Reviewer</td>
+                            <td>Code review</td>
+                            <td><code>/review src/auth.ts</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/test</code></td>
+                            <td>Tester</td>
+                            <td>Chạy tests</td>
+                            <td><code>/test coverage</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/debug</code></td>
+                            <td>Debugger</td>
+                            <td>Deep debug</td>
+                            <td><code>/debug memory leak</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/scout</code></td>
+                            <td>Scout</td>
+                            <td>Phân tích codebase</td>
+                            <td><code>/scout find auth files</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/docs</code></td>
+                            <td>Docs Manager</td>
+                            <td>Tạo documentation</td>
+                            <td><code>/docs API readme</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/git</code></td>
+                            <td>Git Manager</td>
+                            <td>Git operations</td>
+                            <td><code>/git commit feature</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/design</code></td>
+                            <td>Designer</td>
+                            <td>UI/UX design</td>
+                            <td><code>/design dashboard</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/bootstrap</code></td>
+                            <td>Architect</td>
+                            <td>Khởi tạo project</td>
+                            <td><code>/bootstrap react app</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/brainstorm</code></td>
+                            <td>Brainstormer</td>
+                            <td>Brainstorm ideas</td>
+                            <td><code>/brainstorm features</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/skill</code></td>
+                            <td>Dynamic</td>
+                            <td>Load skill cụ thể</td>
+                            <td><code>/skill mcp-builder</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/worktree</code></td>
+                            <td>Git Manager</td>
+                            <td>Quản lý worktrees</td>
+                            <td><code>/worktree create feature</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/preview</code></td>
+                            <td>Fullstack</td>
+                            <td>Preview changes</td>
+                            <td><code>/preview</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/integrate</code></td>
+                            <td>Fullstack</td>
+                            <td>Integrate components</td>
+                            <td><code>/integrate api frontend</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>/kanban</code></td>
+                            <td>PM</td>
+                            <td>Quản lý Kanban</td>
+                            <td><code>/kanban status</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="cmd-when">
+                <h3>Khi nào dùng Command nào?</h3>
+                <div class="workflow-box">
+                    <h4>🔄 Workflow đề xuất</h4>
+                    <ol>
+                        <li><code>/plan</code> → Bắt đầu task mới, tạo implementation plan</li>
+                        <li><code>/cook</code> hoặc <code>/code</code> → Implement code</li>
+                        <li><code>/review</code> → Review code vừa viết</li>
+                        <li><code>/fix</code> → Fix issues từ review</li>
+                        <li><code>/test</code> → Viết và chạy tests</li>
+                        <li><code>/docs</code> → Update documentation</li>
+                        <li><code>/git</code> → Commit và push</li>
+                    </ol>
                 </div>
-                <div class="feature-item">
-                    <div class="icon">🎨</div>
-                    <h4>UI/UX Designer</h4>
-                    <p>Beautiful interfaces</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🐛</div>
-                    <h4>Debugger</h4>
-                    <p>Bug hunting</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🧪</div>
-                    <h4>Tester</h4>
-                    <p>Testing & QA</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📋</div>
-                    <h4>Planner</h4>
-                    <p>Project planning</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🗄️</div>
-                    <h4>DBA</h4>
-                    <p>Database ops</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📦</div>
-                    <h4>Git Manager</h4>
-                    <p>Version control</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">📚</div>
-                    <h4>Docs Manager</h4>
-                    <p>Documentation</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">🔬</div>
-                    <h4>Researcher</h4>
-                    <p>Tech research</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">💡</div>
-                    <h4>Brainstormer</h4>
-                    <p>Creative ideas</p>
-                </div>
-            </div>
+            </section>
 
-            <h2 id="skills">🛠️ Skills Library</h2>
-            <p>36+ skill domains covering all aspects of development:</p>
-
-            <h3>Development</h3>
-            <ul>
-                <li><strong>Backend Development</strong> - REST APIs, servers, authentication</li>
-                <li><strong>Frontend Development</strong> - React, Vue, UI components</li>
-                <li><strong>Frontend Design</strong> - CSS, styling, animations</li>
-                <li><strong>Databases</strong> - SQL, NoSQL, migrations</li>
-                <li><strong>Mobile Development</strong> - iOS, Android, React Native</li>
-            </ul>
-
-            <h3>DevOps & Tools</h3>
-            <ul>
-                <li><strong>DevOps</strong> - CI/CD, Docker, deployment</li>
-                <li><strong>Debugging</strong> - Error analysis, troubleshooting</li>
-                <li><strong>Code Review</strong> - Quality checks, best practices</li>
-                <li><strong>MCP Builder</strong> - MCP protocol tools</li>
-            </ul>
-
-            <h3>Design & Creative</h3>
-            <ul>
-                <li><strong>Aesthetic</strong> - Visual design principles</li>
-                <li><strong>UI Styling</strong> - Premium UI patterns</li>
-                <li><strong>UI/UX Pro Max</strong> - Advanced design</li>
-            </ul>
-
-            <h2 id="commands">⌨️ Slash Commands</h2>
-            <p>18 powerful commands at your fingertips:</p>
-
-            <div class="command-list">
-                <div class="command-item">/plan</div>
-                <div class="command-item">/cook</div>
-                <div class="command-item">/code</div>
-                <div class="command-item">/fix</div>
-                <div class="command-item">/review</div>
-                <div class="command-item">/test</div>
-                <div class="command-item">/debug</div>
-                <div class="command-item">/scout</div>
-                <div class="command-item">/docs</div>
-                <div class="command-item">/git</div>
-                <div class="command-item">/design</div>
-                <div class="command-item">/bootstrap</div>
-                <div class="command-item">/brainstorm</div>
-                <div class="command-item">/skill</div>
-                <div class="command-item">/worktree</div>
-                <div class="command-item">/preview</div>
-                <div class="command-item">/integrate</div>
-                <div class="command-item">/kanban</div>
-            </div>
-
-            <h2 id="desktop">🖥️ VOK Desktop</h2>
-            <p>Beautiful Tauri-based desktop application with modern UI:</p>
-
-            <h3 id="views">Available Views</h3>
-            <table class="docs-table">
-                <thead>
-                    <tr>
-                        <th>View</th>
-                        <th>Purpose</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Dashboard</strong></td>
-                        <td>Overview, stats, command center</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Orchestrator</strong></td>
-                        <td>Phase management & execution</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Kanban</strong></td>
-                        <td>Visual task board</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hierarchy</strong></td>
-                        <td>System visualization</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Execution</strong></td>
-                        <td>Leader monitoring</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Beginner Mode</strong></td>
-                        <td>Simplified for new users</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2 id="thinking">🧠 Thinking Levels</h2>
-            <p>Control AI reasoning depth for different tasks:</p>
-
-            <table class="docs-table">
-                <thead>
-                    <tr>
-                        <th>Level</th>
-                        <th>Use Case</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>none</code></td>
-                        <td>Quick responses</td>
-                    </tr>
-                    <tr>
-                        <td><code>low</code></td>
-                        <td>Simple tasks</td>
-                    </tr>
-                    <tr>
-                        <td><code>medium</code></td>
-                        <td>Standard work</td>
-                    </tr>
-                    <tr>
-                        <td><code>high</code></td>
-                        <td>Complex analysis</td>
-                    </tr>
-                    <tr>
-                        <td><code>ultrathink</code></td>
-                        <td>Maximum reasoning</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2 id="providers">🔌 AI Providers</h2>
-            <p>Configure and switch between multiple AI providers:</p>
-
-            <pre><code># OAuth Login (Free)
+            <!-- PROVIDERS -->
+            <section id="providers">
+                <h2>🔌 AI Providers</h2>
+                <pre><code># OAuth Login (Free)
 ccs gemini --auth
 ccs agy --auth
 
@@ -641,17 +669,65 @@ ccs config
 
 # Health Check
 ccs doctor</code></pre>
+            </section>
 
-            <div
-                style="margin-top: 4rem; padding: 2rem; background: var(--color-surface); border-radius: var(--radius-xl); text-align: center;">
-                <h3 style="margin-bottom: 1rem;">Ready to Get Started?</h3>
-                <p style="margin-bottom: 1.5rem; color: var(--color-text-muted);">Clone the repo and start saving on AI
-                    costs today.</p>
+            <!-- THINKING -->
+            <section id="thinking">
+                <h2>🧠 Thinking Levels</h2>
+                <table class="docs-table">
+                    <thead>
+                        <tr>
+                            <th>Level</th>
+                            <th>Tokens</th>
+                            <th>Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>none</code></td>
+                            <td>0</td>
+                            <td>Quick responses</td>
+                        </tr>
+                        <tr>
+                            <td><code>low</code></td>
+                            <td>1,024</td>
+                            <td>Simple tasks</td>
+                        </tr>
+                        <tr>
+                            <td><code>medium</code></td>
+                            <td>4,096</td>
+                            <td>Standard work</td>
+                        </tr>
+                        <tr>
+                            <td><code>high</code></td>
+                            <td>16,384</td>
+                            <td>Complex analysis</td>
+                        </tr>
+                        <tr>
+                            <td><code>ultrathink</code></td>
+                            <td>65,536</td>
+                            <td>Maximum reasoning</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- CCS -->
+            <section id="ccs">
+                <h2>⚙️ CCS Commands</h2>
+                <pre><code>ccs config         # Web dashboard
+ccs doctor         # Health check
+ccs glm "task"     # Gọi GLM trực tiếp
+ccs gemini "task"  # Gọi Gemini trực tiếp
+ccs agy "task"     # Gọi Antigravity
+ccs --version      # Check version</code></pre>
+            </section>
+
+            <!-- CTA -->
+            <div class="docs-cta">
+                <h3>Ready to Get Started?</h3>
+                <p>Clone the repo and start saving on AI costs today.</p>
                 <a href="https://github.com/TUAN130294/vok" target="_blank" class="btn btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                    </svg>
                     <span>Clone from GitHub</span>
                 </a>
             </div>
@@ -659,35 +735,29 @@ ccs doctor</code></pre>
     </div>
 
     <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scroll & active state
+        document.querySelectorAll('.docs-sidebar a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                    // Update active state in sidebar
                     document.querySelectorAll('.docs-sidebar a').forEach(a => a.classList.remove('active'));
                     this.classList.add('active');
                 }
             });
         });
 
-        // Highlight current section on scroll
-        const sections = document.querySelectorAll('h2[id]');
-        const sidebarLinks = document.querySelectorAll('.docs-sidebar a');
-
+        // Highlight on scroll
         window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
             let current = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
+                if (pageYOffset >= section.offsetTop - 100) {
                     current = section.getAttribute('id');
                 }
             });
-
-            sidebarLinks.forEach(link => {
+            document.querySelectorAll('.docs-sidebar a').forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
